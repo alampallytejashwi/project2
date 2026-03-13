@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenHarvest - Organic Store</title>
+<link href="style.css" rel="stylesheet">
+<link href="Checkout.html">
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="brand"><span>🌿</span> GreenHarvest</a>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search products…" oninput="searchProduct()">
+  </div>
+
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <button class="checkout-btn" onclick="proceedCheckout()">Checkout</button>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  </div>
+</nav>
+
+<!-- CART OVERLAY & SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Your Basket</h3>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span>🌿</span>
+      Your basket is empty.<br>Add some organic goodness!
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="cart-total-price" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-full-btn" onclick="proceedCheckout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-leaves" id="heroLeaves"></div>
+  <h1>Pure from Farm<br>to Your <em>Table</em></h1>
+  <p>Fresh · Healthy · Chemical Free</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-primary-hero">Shop Now</a>
+    <a href="#video" class="btn-secondary-hero">Our Story →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Products</div></div>
+    <div class="stat"><div class="stat-num">12k+</div><div class="stat-label">Customers</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Organic</div></div>
+    <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Delivery</div></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="products">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Our Fresh Picks</h2>
+      <p>Straight from certified organic farms near you</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('vegetable', this)">🥦 Vegetables</button>
+      <button class="filter-btn" onclick="filterProducts('fruit', this)">🍎 Fruits</button>
+      <button class="filter-btn" onclick="filterProducts('grain', this)">🌾 Grains</button>
+      <button class="filter-btn" onclick="filterProducts('dairy', this)">🥛 Dairy</button>
+      <button class="filter-btn" onclick="filterProducts('herb', this)">🌿 Herbs</button>
+
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+    <div id="no-results">😔 No products found for "<span id="searchTerm"></span>"</div>
+  </div>
+</section>
+
+
+<h2>Farm Video</h2>
+
+<video width="1300" controls>
+  <source src="C:\Users\Admin\Downloads\WhatsApp Video 2026-02-21 at 11.01.38 AM.mp4" type="video/mp4">
+</video>
+
+
+
+
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>What Our Customers Say</h2>
+      <p>Real reviews from our happy organic family</p>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid" id="testimonials"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <h2>🌿 Join the Green Circle</h2>
+  <p>Get weekly organic tips, recipes & exclusive deals straight to your inbox.</p>
+  <div class="newsletter-form">
+    <input type="email" id="newsletterEmail" placeholder="Enter correct e-mail.com to Subscribe">
+    <button onclick="subscribeNewsletter()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>GreenHarvest</span> — Grown with love 🌱 | Hyderabad, Telangana</p>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
